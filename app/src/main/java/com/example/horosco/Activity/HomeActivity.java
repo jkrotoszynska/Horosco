@@ -32,59 +32,8 @@ public class HomeActivity extends AppCompatActivity{
     String sign;
     String day;
 
-    public class DownloadTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... urls) {
-            String json = "";
-            URL url;
-            HttpURLConnection urlConnection = null;
-
-            try {
-                url = new URL(urls[0]);
-                urlConnection = (HttpURLConnection) url.openConnection();
-                InputStream inputStream = urlConnection.getInputStream();
-                InputStreamReader reader = new InputStreamReader(inputStream);
-                int data = reader.read();
-
-                while(data != -1){
-                    char letter = (char) data;
-                    json += letter;
-                    data = reader.read();
-                }
-
-                return json;
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-                return null;
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            //Log.i("json", s);
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                String signInfo = jsonObject.getString("Sign");
-                Log.i("Informacje o znaku", signInfo);
-                JSONArray array = new JSONArray(signInfo);
-                for (int i = 0; i < array.length(); i++) {
-                    JSONObject jsonObject1 = array.getJSONObject(i);
-                    Log.i("Opis pogody", jsonObject1.getString("description"));
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
+    public static final String EXTRA_TEXT = "com.example.application.example.EXTRA_TEXT";
+    public static final String EXTRA_TEXT2 = "com.example.application.example.EXTRA_TEXT2";
 
     private Spinner spinnerSigns;
 
@@ -101,7 +50,13 @@ public class HomeActivity extends AppCompatActivity{
             public void onClick(View v) {
                 sign = spinnerSigns.getSelectedItem().toString();
                 day = "today";
-                startActivity(new Intent(HomeActivity.this,SignActivity.class));
+
+                Intent intent = new Intent(HomeActivity.this, SignActivity.class);
+                intent.putExtra(EXTRA_TEXT, sign);
+                intent.putExtra(EXTRA_TEXT2, day);
+                startActivity(intent);
+
+                //startActivity(new Intent(HomeActivity.this,SignActivity.class));
                 //Toast.makeText(getApplicationContext(), sign, Toast.LENGTH_SHORT).show();
             }
         });
@@ -112,7 +67,13 @@ public class HomeActivity extends AppCompatActivity{
             public void onClick(View v) {
                 sign = spinnerSigns.getSelectedItem().toString();
                 day = "yesterday";
-                startActivity(new Intent(HomeActivity.this,SignActivity.class));
+
+                Intent intent = new Intent(HomeActivity.this, SignActivity.class);
+                intent.putExtra(EXTRA_TEXT, sign);
+                intent.putExtra(EXTRA_TEXT2, day);
+                startActivity(intent);
+
+                //startActivity(new Intent(HomeActivity.this,SignActivity.class));
                 //Toast.makeText(getApplicationContext(), sign, Toast.LENGTH_SHORT).show();
             }
         });
@@ -123,7 +84,13 @@ public class HomeActivity extends AppCompatActivity{
             public void onClick(View v) {
                 sign = spinnerSigns.getSelectedItem().toString();
                 day = "tomorrow";
-                startActivity(new Intent(HomeActivity.this,SignActivity.class));
+
+                Intent intent = new Intent(HomeActivity.this, SignActivity.class);
+                intent.putExtra(EXTRA_TEXT, sign);
+                intent.putExtra(EXTRA_TEXT2, day);
+                startActivity(intent);
+
+                //startActivity(new Intent(HomeActivity.this,SignActivity.class));
                 //Toast.makeText(getApplicationContext(), sign + day, Toast.LENGTH_SHORT).show();
             }
         });
@@ -133,8 +100,8 @@ public class HomeActivity extends AppCompatActivity{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSigns.setAdapter(adapter);
 
-        DownloadTask task = new DownloadTask();
-        task.execute("https://aztro.sameerkumar.website?sign="+sign+"&day="+day);
+//        DownloadTask task = new DownloadTask();
+//        task.execute("https://aztro.sameerkumar.website?sign="+sign+"&day="+day);
 
     }
 }
