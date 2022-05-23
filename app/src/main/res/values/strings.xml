@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Horosco</string>
+
+    <string-array name="signs">
+        <item>Aries</item>
+        <item>Taurus</item>
+        <item>Gemini</item>
+        <item>Cancer</item>
+        <item>Leo</item>
+        <item>Virgo</item>
+        <item>Libra</item>
+        <item>Scorpius</item>
+        <item>Sagittarius</item>
+        <item>Aquarius</item>
+        <item>Pisces</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>Today</item>
+        <item>Yesterday</item>
+        <item>Tomorrow</item>
+    </string-array>
+</resources>
