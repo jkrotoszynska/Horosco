@@ -17,4 +17,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bigrectangle" />
 
+    <TextView
+        android:id="@+id/infoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgpic2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
