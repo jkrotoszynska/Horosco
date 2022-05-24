@@ -17,12 +17,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bigrectangle" />
 
+    <ImageView
+        android:id="@+id/image_sign_view"
+        android:layout_width="159dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgpic2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgpic2"
+        app:layout_constraintVertical_bias="0.333"
+        app:srcCompat="@drawable/aquarius" />
+
     <TextView
         android:id="@+id/infoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:text=""
@@ -31,7 +42,37 @@
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bgpic2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <TextView
+        android:id="@+id/text_date_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/infoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_sign_view" />
+
+    <TextView
+        android:id="@+id/text_sign_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/image_sign_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

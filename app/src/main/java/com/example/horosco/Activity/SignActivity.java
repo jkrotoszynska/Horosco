@@ -1,9 +1,11 @@
 package com.example.horosco.Activity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,9 +92,27 @@ public class SignActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String strDate = sdf.format(c.getTime());
+        //Log.d("Date","DATE : " + strDate);
+
+        TextView infoView = (TextView) findViewById(R.id.text_date_display);
+        infoView.setText("Today is " + strDate);
+
         Intent intent = getIntent();
         String sign = (intent.getStringExtra(HomeActivity.EXTRA_TEXT)).toLowerCase();
+        String signName = (intent.getStringExtra(HomeActivity.EXTRA_TEXT)).toLowerCase();
         //String day = intent.getStringExtra(HomeActivity.EXTRA_TEXT2);
+
+        TextView infoView2 = (TextView) findViewById(R.id.text_sign_display);
+        infoView2.setText("Hello " + signName.toUpperCase());
+
+        String uri = "@drawable/" + sign;
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        ImageView imageSignView = (ImageView)findViewById(R.id.image_sign_view);
+        Drawable res = getResources().getDrawable(imageResource);
+        imageSignView.setImageDrawable(res);
 
         Toast.makeText(getApplicationContext(), sign, Toast.LENGTH_SHORT).show();
 
