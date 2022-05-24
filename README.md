@@ -7,3 +7,4 @@ __Tools:__ Android Studio
 __API:__ [Ohmanda](https://ohmanda.com/api/horoscope/)
 ***
 # App sneak peek 
+![alt text](https://github.com/jkrotoszynska/Horosco/blob/main/screen.PNG "LoginScreen")
