@@ -97,10 +97,12 @@ public class SignActivity extends AppCompatActivity {
         String strDate = sdf.format(c.getTime());
         //Log.d("Date","DATE : " + strDate);
 
-        TextView infoView = (TextView) findViewById(R.id.text_date_display);
-        infoView.setText("Today is " + strDate);
-
         Intent intent = getIntent();
+        String day = (intent.getStringExtra(HomeActivity.EXTRA_TEXT2));
+        TextView infoView = (TextView) findViewById(R.id.text_date_display);
+        infoView.setText(day + ": " + strDate);
+
+
         String sign = (intent.getStringExtra(HomeActivity.EXTRA_TEXT)).toLowerCase();
         String signName = (intent.getStringExtra(HomeActivity.EXTRA_TEXT)).toLowerCase();
         //String day = intent.getStringExtra(HomeActivity.EXTRA_TEXT2);
@@ -114,7 +116,7 @@ public class SignActivity extends AppCompatActivity {
         Drawable res = getResources().getDrawable(imageResource);
         imageSignView.setImageDrawable(res);
 
-        Toast.makeText(getApplicationContext(), sign, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), sign, Toast.LENGTH_SHORT).show();
 
         SignActivity.DownloadTask task = new SignActivity.DownloadTask();
         task.execute("https://ohmanda.com/api/horoscope/"+sign);
